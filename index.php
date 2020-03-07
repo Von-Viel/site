@@ -4,7 +4,7 @@
     <br>
     <br>
     <p>
-        TildeRadio is Internet radio streamed by / streamed for users of the tildeverse.
+        TildeRadio is Internet radio streamed by / for users of the tildeverse.
         <a href="https://tildeverse.org/">tildeverse.org</a>
     </p>
     <br>
