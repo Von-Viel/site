@@ -9,6 +9,7 @@ TildeRadio is Internet radio streamed by / for users of the tildeverse.
 <a href="https://tildeverse.org/">tildeverse.org</a>
 </p>
 <p>TildeRadio has a dedicated irc channel, #tilderadio on <a href="https://tilde.chat">tilde.chat</a></p>
+<p>Join the conversation <a href="https://web.tilde.chat/?join=tilderadio" target="_blank">Here</a></p>
 <br>
 <br>
 
