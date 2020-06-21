@@ -2,10 +2,7 @@
 
 <h1><a href="https://tilderadio.org"><img style="width:75px;" src="./logos/tilderadio-green.png">tilderadio.org</a></h1>
 	<h4>
-		<?php
-            $slogans = file("slogans.txt");
-            echo $slogans[array_rand($slogans)];
-		?>
+		<?=file_get_contents("https://radiobot.tilde.chat/slogan.php")?>
 	</h4>
 
 <br>
