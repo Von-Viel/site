@@ -10,7 +10,7 @@ function formatdate($date) {
 
 <h1><a href="https://tilderadio.org"><img style="width:75px;" src="../logos/tilderadio-green.png">tilderadio.org</a></h1>
 <h4>upcoming broadcasts</h4>
-<p>all times in UTC</p>
+<p>all times in UTC. current time is <?=formatdate("now")?>.</p>
 
 <table class="table table-striped">
     <thead>
