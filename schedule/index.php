@@ -1,8 +1,30 @@
 <?php
-include '../header.php';
-$schedule = json_decode(file_get_contents("https://radio.tildeverse.org/api/station/1/schedule?rows=1000&now=last%20monday"), true);
-
 date_default_timezone_set("UTC");
+include '../header.php';
+include 'apikey.php';
+
+if (empty($apikey)) {
+    die("missing api key");
+}
+$context = stream_context_create([
+    "http" => [
+        "method" => "GET",
+        "header" => "X-API-Key: $apikey\r\n"
+    ]
+]);
+
+$wk_begin = date("Y-m-d\TH:i:s\Z", strtotime("last sunday"));
+$wk_end   = date("Y-m-d\TH:i:s\Z", strtotime("next sunday"));
+
+$schedule = json_decode(
+    file_get_contents(
+        "https://radio.tildeverse.org/api/station/1/streamers/schedule?start=$wk_begin&end=$wk_end&timeZone=UTC",
+        false,
+        $context
+    ),
+    true
+);
+
 function formatdate($date) {
     return date("D H:i", strtotime($date));
 }
@@ -22,7 +44,7 @@ function formatdate($date) {
     <tbody>
         <?php foreach ($schedule as $item): ?>
         <tr>
-            <td><?=$item["name"]?></td>
+            <td><?=$item["title"]?></td>
             <td><?=formatdate($item["start"])?> - <?=formatdate($item["end"])?></td>
         </tr>
         <?php endforeach; ?>
