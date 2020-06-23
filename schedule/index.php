@@ -26,7 +26,7 @@ $schedule = json_decode(
 );
 
 function formatdate($date) {
-    return date("D H:i", strtotime($date));
+    return date("D dd M H:i", strtotime($date));
 }
 ?>
 
