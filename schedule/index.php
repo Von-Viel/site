@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set("UTC");
 include '../header.php';
 include 'apikey.php';
 
@@ -13,12 +12,12 @@ $context = stream_context_create([
     ]
 ]);
 
-$wk_begin = date("Y-m-d\TH:i:s\Z", strtotime("last sunday"));
-$wk_end   = date("Y-m-d\TH:i:s\Z", strtotime("next sunday"));
+$from = gmdate("Y-m-d\TH:i:s\Z", strtotime("now + 1 day"));
+$to   = gmdate("Y-m-d\TH:i:s\Z", strtotime("now + 8 days"));
 
 $schedule = json_decode(
     file_get_contents(
-        "https://radio.tildeverse.org/api/station/1/streamers/schedule?start=$wk_begin&end=$wk_end&timeZone=UTC",
+        "https://radio.tildeverse.org/api/station/1/streamers/schedule?start=$from&end=$to",
         false,
         $context
     ),
@@ -26,11 +25,11 @@ $schedule = json_decode(
 );
 
 usort($schedule, function ($a, $b) {
-    return $a["start"] < $b["start"] ? -1 : 1;
+    return $a["start"] <=> $b["start"];
 });
 
 function formatdate($date) {
-    return date("D M d H:i", strtotime($date));
+    return gmdate("D M d H:i", strtotime($date));
 }
 ?>
 
