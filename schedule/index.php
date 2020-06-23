@@ -25,6 +25,10 @@ $schedule = json_decode(
     true
 );
 
+usort($schedule, function ($a, $b) {
+    return $a["start"] < $b["start"] ? -1 : 1;
+});
+
 function formatdate($date) {
     return date("D M d H:i", strtotime($date));
 }
