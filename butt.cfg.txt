@@ -1,0 +1,77 @@
+#This is a configuration file for butt (broadcast using this tool)
+
+[main]
+bg_color = 151540480
+txt_color = -256
+server = Tilde
+srv_ent = Tilde
+icy = RFPC
+icy_ent = RFPC
+num_of_srv = 1
+num_of_icy = 1
+song_path = 
+song_update = 0
+app_update_service = 3
+app_update = 1
+gain = 0.707946
+connect_at_startup = 0
+log_file = 
+
+[audio]
+# edit here
+device = 3
+samplerate = 44100
+bitrate = 128
+channel = 2
+codec = mp3
+aac_overwrite_aot = 0
+aac_aot = 5
+resample_mode = 0
+buffer_ms = 50
+
+[record]
+bitrate = 128
+codec = mp3
+start_rec = 0
+rec_after_launch = 0
+sync_to_hour  = 0
+split_time = 0
+filename = rec_%Y%m%d-%H%M%S.mp3
+# edit here
+folder = /home/myuser/
+
+[dsp]
+equalizer = 0
+gain1 = 0.000000
+gain2 = 0.000000
+gain3 = 0.000000
+gain4 = 0.000000
+gain5 = 0.000000
+
+[gui]
+attach = 1
+ontop = 1
+lcd_auto = 0
+
+[Tilde]
+address = radio.tildeverse.org
+# live stream
+port = 8005
+# test stream
+#port = 8015
+# edit here
+password = your stream password here
+type = 1
+mount = /
+# edit here
+usr = myuser
+
+[RFPC]
+pub = 0
+description = radio free tilde
+genre = Various
+url = https://tilderadio.org
+irc = irc.tilde.chat
+icq = 
+aim = 
+
