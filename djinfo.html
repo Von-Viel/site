@@ -28,6 +28,31 @@
             <p>if you're having trouble, try setting your software to broadcast 128kbps mp3</p>
             <p><a href="butt.cfg.txt">example butt config</a></p>
 
+            <p>pulseaudio wizardry</p>
+            <pre>
+# Setup virtual null sink & two loopbacks
+pulseaudio -k
+pactl load-module module-null-sink sink_name=v1 sink_properties=device.description="v1"
+pactl load-module module-loopback sink=v1
+pactl load-module module-loopback sink=v1
+
+# Run pavucontrol
+pavucontrol &
+
+# Configure
+
+Playback:
+Loopbacks => v1
+Applications => Headset stereo device
+
+Recording:
+Butt => Monitor of v1
+Loopback 1 => Headset stereo device
+Loopback 2 => Monitor of input device
+
+All volume sliders to 100%
+            </pre>
+
 			<p>the test stream is available on port 8015 and you can listen to it
 			<a href="https://radio.tildeverse.org/public/tilderadio_-_test">here</a></p>
 
