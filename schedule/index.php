@@ -41,14 +41,16 @@ function formatdate($date) {
     <thead>
         <tr>
             <th>dj</th>
-            <th>time</th>
+            <th>start</th>
+            <th>end</th>
         </tr>
     </thead>
     <tbody>
         <?php foreach ($schedule as $item): ?>
         <tr>
             <td><?=$item["title"]?></td>
-            <td><?=formatdate($item["start"])?> - <?=formatdate($item["end"])?></td>
+            <td><?=formatdate($item["start"])?></td>
+            <td><?=formatdate($item["end"])?></td>
         </tr>
         <?php endforeach; ?>
     </tbody>
